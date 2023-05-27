@@ -17,8 +17,8 @@ int main() {
     do {
         printf("draw rectangle: ");
         scanf("%d", &size);
-        draw_rec(size);
-
+        getchar();
+    draw_rec(size);
     printf("co muon quay lai Y/N :");
     scanf("%c", &c);
 }while (c=='y'||c=='Y');
