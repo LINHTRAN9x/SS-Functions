@@ -9,6 +9,7 @@ area(int a,int b){
 }
 int main() {
     int i, j, choice;
+    char r;
     do {
         printf("\nEnter length and width :  ");
         scanf("%d %d", &i, &j);
@@ -17,6 +18,7 @@ int main() {
             printf("||Choice 1 if your want calculator Area of rectangle|| \n");
             printf("||Choice 2 if your want calculator Perimeter of rectangle|| \n");
             scanf("%d",&choice);
+            getchar();
             switch (choice) {
                 case 1: {
                     int dientich = area(i, j);
@@ -28,8 +30,13 @@ int main() {
                     printf("Perimeter of rectangle is : %d ", chuvi);
                     break;
                 }
+                default:
+                    printf("Wrong number!!");
+                    break;
             }
-        } else
-            printf("wrong number!!");
-    } while (1);
+        }
+        printf("=>Are u want return Y/N : ");
+        scanf("%c",&r);
+
+    } while (r=='y'||r=='Y');
 }
