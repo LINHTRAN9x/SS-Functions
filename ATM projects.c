@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 int sodu = 20000000;
-
 void check() {
     printf("So du la %dVND\n", sodu);
 }
@@ -19,6 +18,7 @@ int tinhguitien(int a) {
 int main() {
     char choice, exit = 'N';
     int i, l;
+    int sodu_goc=sodu;
     do {
         printf("Xin vui long nhap ma pin (4 so) vao day :");
         scanf("%d", &l);
