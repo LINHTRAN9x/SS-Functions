@@ -4,23 +4,24 @@ float sum = 0;
 static int espresso_count = 0;
 static int cappuccino_count = 0;
 static int latte_count = 0;
+float latte=3.50,espresso=2.50,cappuccino=3.00;
 
 float tinhespresso(int quantity) {
     printf("%d espresso ordered\n", quantity);
     espresso_count += quantity;
-    sum += (2.50 * quantity);
+    sum += (espresso * quantity);
 }
 
 float tinhcappuccino(int quantity) {
     printf("%d cappuccino ordered\n", quantity);
     cappuccino_count += quantity;
-    sum += (3.00 * quantity);
+    sum += (cappuccino * quantity);
 }
 
 float tinhlatte(int quantity) {
     printf("%d latte ordered\n", quantity);
     latte_count += quantity;
-    sum += (3.50 * quantity);
+    sum += (latte * quantity);
 }
 
 void ketqua() {
@@ -33,7 +34,6 @@ void ketqua() {
 
 int main() {
     char choice;
-    
     int quantity;
 
     do {
@@ -71,7 +71,6 @@ int main() {
             }
         }
     } while (choice != 'd');
-
     ketqua();
     return 0;
 }
