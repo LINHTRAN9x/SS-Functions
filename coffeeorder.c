@@ -1,70 +1,77 @@
 #include <stdio.h>
-float sum=0;
-static int espresso_count=0;
-static int cappuccino_count=0;
-static int latte_count=0;
-float tinhespresso(float a) {
 
-    printf("espresso ordered\n");
-    espresso_count++;
-    sum+=a;
+float sum = 0;
+static int espresso_count = 0;
+static int cappuccino_count = 0;
+static int latte_count = 0;
 
+float tinhespresso(int quantity) {
+    printf("%d espresso ordered\n", quantity);
+    espresso_count += quantity;
+    sum += (2.50 * quantity);
 }
 
-float tinhcappuccino(float b) {
-
-    printf("cappuccino ordered\n");
-    cappuccino_count++;
-    sum+=b;
+float tinhcappuccino(int quantity) {
+    printf("%d cappuccino ordered\n", quantity);
+    cappuccino_count += quantity;
+    sum += (3.00 * quantity);
 }
 
-float tinhlatte(c) {
-
-    printf("latte ordered\n");
-    latte_count++;
-    sum+=c;
+float tinhlatte(int quantity) {
+    printf("%d latte ordered\n", quantity);
+    latte_count += quantity;
+    sum += (3.50 * quantity);
 }
-ketqua(){
+
+void ketqua() {
     printf("Order details:\n");
-    printf("espresso : %d\n", espresso_count);
-    printf("cappuccino : %d\n",cappuccino_count );
-    printf("latte : %d\n",latte_count);
-    printf("total cost : $%.2f\n", sum);
+    printf("Espresso: %d\n", espresso_count);
+    printf("Cappuccino: %d\n", cappuccino_count);
+    printf("Latte: %d\n", latte_count);
+    printf("Total cost: $%.2f\n", sum);
 }
 
 int main() {
     char choice;
-    float a=2.50,b=3.00,c=3.50;
-    int e;
+    
+    int quantity;
+
     do {
         printf("-------MENU------\n");
-        printf("a.Espresso: 2.50$\n");
-        printf("b.cappuccino: 3.00$\n");
-        printf("c.latte: 3.50$\n");
-        printf("d.quit\n");
-        printf("Lua chon cua ban la : ");
+        printf("a. Espresso: 2.50$\n");
+        printf("b. Cappuccino: 3.00$\n");
+        printf("c. Latte: 3.50$\n");
+        printf("d. Quit\n");
+        printf("Your choice: ");
         scanf(" %c", &choice);
+
         if (choice == 'd') {
-            printf("Thoat\n");
+            printf("Exiting\n");
             break;
-        }
-        else {
+        } else {
             switch (choice) {
                 case 'a':
-                    tinhespresso(a);
+                    printf("Enter the quantity: ");
+                    scanf("%d", &quantity);
+                    tinhespresso(quantity);
                     break;
                 case 'b':
-                    tinhcappuccino(b);
+                    printf("Enter the quantity: ");
+                    scanf("%d", &quantity);
+                    tinhcappuccino(quantity);
                     break;
                 case 'c':
-                    tinhlatte(c);
+                    printf("Enter the quantity: ");
+                    scanf("%d", &quantity);
+                    tinhlatte(quantity);
                     break;
                 default:
                     ketqua();
                     break;
             }
         }
-    } while (choice!='d');
+    } while (choice != 'd');
+
     ketqua();
     return 0;
 }
