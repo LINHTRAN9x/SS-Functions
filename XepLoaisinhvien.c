@@ -1,23 +1,54 @@
 #include <stdio.h>
-sapxep(int a){
+
+char sapxep(int a) {
     if (a >= 90)
-        printf("A\n");
+        return 'A';
     else if (a >= 80)
-        printf("B\n");
+        return 'B';
     else if (a >= 70)
-        printf("C\n");
+        return 'C';
     else if (a >= 60)
-        printf("D\n");
+        return 'D';
     else
-        printf("F\n");
-        return 0;
+        return 'F';
 }
+
 int main() {
-    int i[5];
-    int j;
-    for (j = 0; j < 5; j++) {
-        printf("nhap dien so sinh vien %d: ", j + 1);
-        scanf("%d", &i[j]);
-        sapxep(i[j]);
-    }
+    int i[100];
+    int index[100];
+    int j, h, n;
+    char choice;
+
+    do {
+        printf("Nhap so sinh vien can tra cuu: ");
+        scanf("%d", &n);
+        for (j = 0; j < n; j++) {
+            printf("nhap diem so sinh vien %d: ", j + 1);
+            scanf("%d", &i[j]);
+            index[j]=i[j];
+            getchar();
+        }
+        for (j=0;j<n-1;j++) {
+            for (h = j + 1; h < n; h++) {
+                if (i[h] > i[j]) {
+                    int temp = i[h];
+                    i[h] = i[j];
+                    i[j] = temp;
+
+                    int tempindex = index[h];
+                    index[h] = index[j];
+                    index[j] = tempindex;
+
+                }
+            }
+        }
+        for (j = 0; j < n; j++) {
+            char xeploai = sapxep(i[j]);
+            printf("sinh vien %d - Diem %d. Xep loai %c\n",index[j],i[j],xeploai);
+        }
+        printf("return Y/N: ");
+        scanf(" %c", &choice);
+    } while (choice == 'y' || choice == 'Y');
+
+    return 0;
 }
