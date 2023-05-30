@@ -25,7 +25,7 @@ float tinhlatte(int quantity) {
 }
 
 void ketqua() {
-    printf("Order details:\n");
+    printf("-----------Order details------------\n");
     printf("Espresso: %d\n", espresso_count);
     printf("Cappuccino: %d\n", cappuccino_count);
     printf("Latte: %d\n", latte_count);
@@ -37,7 +37,7 @@ int main() {
     int quantity;
 
     do {
-        printf("-------MENU------\n");
+        printf("----------MENU----------\n");
         printf("a. Espresso: 2.50$\n");
         printf("b. Cappuccino: 3.00$\n");
         printf("c. Latte: 3.50$\n");
@@ -46,7 +46,7 @@ int main() {
         scanf(" %c", &choice);
 
         if (choice == 'd') {
-            printf("Exiting\n");
+            printf("=>Exiting\n");
             break;
         } else {
             switch (choice) {
