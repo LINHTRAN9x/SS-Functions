@@ -13,7 +13,7 @@ int main(){
     printf("+m : ");
     scanf("%d",&m);
     printf("the even number betwen 1 and 8:");
-    for (i=n;i<=m;i++){
+    for (i=n+1;i<m;i++){
         if (i%2==0){
             isevennumber(i);
             printf("%d",i);
